@@ -1,0 +1,153 @@
+21/07/2022
+
+Java Notes Day1
+
+Day 1
+1. Intro
+2. Features of Java
+3. First program
+
+Headfirst java - Cathy sierra
+The java programming language - James Gosling, David holmes, Ken arnold
+Java complete reference - Patrick Norton
+
+-------------------------------------------------------------------------------------------------------------------
+
+Green project
+
+CPU - X86		
+OS - Windows
+Compiler - Turboc
+Source code - F.cpp
+Compile - F.obj
+Headers location is diff, configs, 5% changes req.
+Linker - F.exe
+Launchit - run
+
+CPU - SPARC
+OS - Solaris
+Compiler - cc
+Source code - F.cpp
+Compile - F.o
+Linker - F.out
+Launchit - run
+
+CPU - IBM
+OS - BB
+Compiler - AIX
+Source code - F.cpp
+Compile - F.o
+Linker - F.out
+Launchit - run
+
+-------------------------------------------------------------------------------------------------------------------
+
+CPU - X86		
+OS - Windows
+JVM
+Source code - F.java
+Compile - *.clas
+Interpreter - runs the code
+
+CPU - SPARC
+OS - Solaris
+JVM
+Source code - F.java
+Compile - *.class
+Interpreter - runs the code
+
+CPU - IBM
+OS - BB
+JVM
+Source code - F.java
+Compile - *.class
+Interpreter - runs the code
+
+-------------------------------------------------------------------------------------------------------------------
+
+Example - CD is compiled class file and CD player is JVM - Java Virtual Machine
+
+James gosling\Developed java - Green project using C++ -> Handle many devices through 1 device -> 
+C++ -> memory allocation, deallocation -> pointers -> security -> PORTABILITY
+
+Java programming language
+
+-Listen
+-Speak
+-Reading
+-Writing
+
+Steps - Create a java file -> Type in the code -> Compile using file name -> Run using class name
+Compilation - name of file
+Run - class
+if - public class Joker - must be saved as a seperate file
+every file can have any no of classes and classes can all have main method
+Naming convention -  GodIsNowHere
+setLookAndFeel() - method
+rollNumber - variable
+PI, SOL - constants
+
+-------------------------------------------------------------------------------------------------------------------
+
+javap - shows the methods - dissassembler shows only declarations
+notepad "Name".java
+:set number
+javac "Name".java
+ls -l First.*
+ls -l Greeting.class / dir Greeting.class
+java Welcome
+ls -l *.java
+
+-------------------------------------------------------------------------------------------------------------------
+
+Code sample:
+class Greeting
+{
+public static void main(String Args[])
+{
+System.out.println("Hello java "+Args[0]);
+}
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+Features of Java
+	Simple
+		- no pointer
+		- no DMA
+		- legacy syntax
+	Object oriented
+	Compiled and interpreted
+	WORA - Write once run anywhere
+	Secured (SandBox)
+	Multithreaded
+	Robust
+		Ability to handle exceptions
+		Ability to perform garbage collection
+	Dynamic language
+		new keyword is always required
+	Distributed
+
+-------------------------------------------------------------------------------------------------------------------
+
+Classes - Blueprint of an object - logical/simple text filw
+Object - Instance of a class - physical/memory based entity -> should be declared with the same name as the class
+
+SavingsAccount y = new SavingsAccount(); -> y is not an object, but a reference to an object
+
+-------------------------------------------------------------------------------------------------------------------
+
+Data types 
+
+Primary(primitive) -> Integral Character boolean
+		      byte     char	 
+		      short
+		      int
+		      long
+		      double
+		      float
+Secondary(object based)
+
+OOPS concepts -> learn
+
+-------------------------------------------------------------------------------------------------------------------
