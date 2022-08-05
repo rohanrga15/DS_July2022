@@ -1,0 +1,1506 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show tables
+    ->
+    -> \h
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
+ssl_session_data_print Serializes the current SSL session data to stdout or file
+
+For server side help, type 'help contents'
+
+    -> \c
+mysql> SHOW DATABASES
+    -> \C
+ERROR:
+Usage: \C charset_name | charset charset_name
+    -> \c
+mysql> SHOW DATABASES :
+    -> \c
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.02 sec)
+
+mysql> SHOW TABLES;
+ERROR 1046 (3D000): No database selected
+mysql> SHOW TABLES;
+ERROR 1046 (3D000): No database selected
+mysql> use mysql
+Database changed
+mysql> SHOW TABLES;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+37 rows in set (0.02 sec)
+
+mysql> create table student;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table employee
+    -> (
+    ->  int empno,
+    ->  \c
+mysql> create table student(stuid int, studname varchar(20), studmarks int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into student values(101, 'JOHN', 90);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++-------+----------+-----------+
+| stuid | studname | studmarks |
++-------+----------+-----------+
+|   101 | JOHN     |        90 |
++-------+----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> create table employee
+    -> (
+    ->  empid int
+    ->  empid int\c
+mysql> insert into student values(102, 'JAMES', 75);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM STUDENT;
++-------+----------+-----------+
+| stuid | studname | studmarks |
++-------+----------+-----------+
+|   101 | JOHN     |        90 |
+|   102 | JAMES    |        75 |
++-------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> create table employee
+    -> (
+    ->  empid int,
+    ->  empname varchar(20),
+    -> esal int
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into employee values(111, 'JAMES', 5000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee
+    -> \c
+mysql> select * from employee;
++-------+---------+------+
+| empid | empname | esal |
++-------+---------+------+
+|   111 | JAMES   | 5000 |
++-------+---------+------+
+1 row in set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> use mysql;
+Database changed
+mysql> show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| employee                                             |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| student                                              |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+39 rows in set (0.00 sec)
+
+mysql> create table flight
+    -> (
+    ->  flno int,
+    ->  flname varchar(20),
+    ->  source varchar(20),
+    ->  dest varchar(20)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into flight values(747, 'Lufthansa', 'Dehli', 'New York');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into flight values(777, 'Air Asia', 'Bangalore', 'China');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from flight;
++------+-----------+-----------+----------+
+| flno | flname    | source    | dest     |
++------+-----------+-----------+----------+
+|  747 | Lufthansa | Dehli     | New York |
+|  777 | Air Asia  | Bangalore | China    |
++------+-----------+-----------+----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into employee values(212, 'JIM', 7000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from employee
+    -> \v
+ERROR:
+Unknown command '\v'.
+    -> \c
+mysql> select * from employee;
++-------+---------+------+
+| empid | empname | esal |
++-------+---------+------+
+|   111 | JAMES   | 5000 |
+|   212 | JIM     | 7000 |
++-------+---------+------+
+2 rows in set (0.00 sec)
+
+mysql> create table DEPT
+    -> (
+    ->  deptno int primary key,
+    ->  deptname varchar(20) unique,
+    ->  loc varchar(20)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> use mysql
+Database changed
+mysql> show databases
+    -> \c
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from dept;
+Empty set (0.00 sec)
+
+mysql> insert into dept values(10, 'Accounting', 'New York');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> ^C
+mysql> ^C
+mysql> insert into dept values(20, 'Operations', 'Boston');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(30, 'Research', 'Dallas');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into dept values(40, 'Sales', 'Philadelphia');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+--------------+
+| deptno | deptname   | loc          |
++--------+------------+--------------+
+|     10 | Accounting | New York     |
+|     20 | Operations | Boston       |
+|     30 | Research   | Dallas       |
+|     40 | Sales      | Philadelphia |
++--------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> create table emp
+    -> (
+    ->  empno int primary key'
+    '>  ename varchar(20)
+    '> /c
+    '> \c
+    '> \c
+    '> clear
+    '> select * from dept;
+    '> /c
+    '> ^C
+mysql> create table emp
+    -> (
+    ->  empno primary kay,
+    -> \c
+mysql>  create table DEPT
+    ->     -> (
+    ->     ->  deptno int primary key,
+    ->     ->  deptname varchar(20) unique,
+    ->     ->  loc varchar(20)
+    ->     -> \c
+mysql> create table emp
+    -> (
+    ->  empno primary key,
+    ->  ename varchar(20),
+    -> job varchar(20),
+    ->  mgr int,
+    ->  hiredate int,
+    ->  sal int,
+    -> comm int,
+    ->  deptno int,
+    ->  foreign key (deptno) references dept (deptno),
+    ->  foreign key (mgr) references emp(empno)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'primary key,
+        ename varchar(20),
+job varchar(20),
+        mgr int,
+        hiredate int,
+        sal ' at line 3
+mysql> create table emp
+    ->     -> (
+    ->     ->  empno int primary key,
+    ->     ->  ename varchar(20),
+    ->     -> job varchar(20),
+    ->     ->  mgr int,
+    ->     ->  hiredate int,
+    ->     ->  sal int,
+    ->     -> comm int,
+    ->     ->  deptno int,
+    ->     ->  foreign key (deptno) references dept (deptno),
+    ->     ->  foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->  empno int primary key,
+    ->  ename varchar(20),
+    -> job varcha' at line 2
+mysql> create table emp
+    ->     -> (
+    ->     ->    empno int primary key,
+    ->     ->    ename varchar(20),
+    ->     ->    job varchar(20)
+    ->     ->    mgr int,
+    ->     ->    hiredate date,
+    ->     ->    sal int,
+    ->     ->    comm int,
+    ->     ->    deptno int,
+    ->     ->    foreign key (deptno) references dept(deptno),
+    ->     ->    foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->    empno int primary key,
+    ->    ename varchar(20),
+    ->    job' at line 2
+mysql>
+mysql> create table emp
+    ->     -> (
+    ->     ->    empno int primary key,
+    ->     ->    ename varchar(20),
+    ->     ->    job varchar(20)
+    ->     ->    mgr int,
+    ->     ->    hiredate date,
+    ->     ->    sal int,
+    ->     ->    comm int,
+    ->     ->    deptno int,
+    ->     ->    foreign key (deptno) references dept(deptno),
+    ->     ->    foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->    empno int primary key,
+    ->    ename varchar(20),
+    ->    job' at line 2
+mysql>
+mysql>
+mysql>
+mysql> create table emp
+    ->     -> (
+    ->     ->    empno int primary key,
+    ->     ->    ename varchar(20),
+    ->     ->    job varchar(20)
+    ->     ->    mgr int,
+    ->     ->    hiredate date,
+    ->     ->    sal int,
+    ->     ->    comm int,
+    ->     ->    deptno int,
+    ->     ->    foreign key (deptno) references dept(deptno),
+    ->     ->    foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->    empno int primary key,
+    ->    ename varchar(20),
+    ->    job' at line 2
+mysql>
+mysql> create table emp
+    ->     -> (
+    ->     ->    empno int primary key,
+    ->     ->    ename varchar(20),
+    ->     ->    job varchar(20)
+    ->     ->    mgr int,
+    ->     ->    hiredate date,
+    ->     ->    sal int,
+    ->     ->    comm int,
+    ->     ->    deptno int,
+    ->     ->    foreign key (deptno) references dept(deptno),
+    ->     ->    foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->    empno int primary key,
+    ->    ename varchar(20),
+    ->    job' at line 2
+mysql> create table emp
+    ->     -> (
+    ->     ->    empno int primary key,
+    ->     ->    ename varchar(20),
+    ->     ->    job varchar(20)
+    ->     ->    mgr int,
+    ->     ->    hiredate date,
+    ->     ->    sal int,
+    ->     ->    comm int,
+    ->     ->    deptno int,
+    ->     ->    foreign key (deptno) references dept(deptno),
+    ->     ->    foreign key (mgr) references emp(empno)
+    ->     -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> (
+    ->    empno int primary key,
+    ->    ename varchar(20),
+    ->    job' at line 2
+mysql>
+mysql>
+mysql> create table emp
+    ->      (
+    ->         empno int primary key,
+    ->         ename varchar(20),
+    ->         job varchar(20)
+    ->         mgr int,
+    ->         hiredate date,
+    ->         sal int,
+    ->         comm int,
+    ->         deptno int,
+    ->         foreign key (deptno) references dept(deptno),
+    ->         foreign key (mgr) references emp(empno)
+    ->      );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mgr int,
+        hiredate date,
+        sal int,
+        comm int,
+        deptn' at line 6
+mysql> create table emp
+    ->      (
+    ->         empno int primary key,
+    ->         ename varchar(20),
+    ->         job varchar(20)
+    ->         mgr int,
+    ->         hiredate date,
+    ->         sal int,
+    ->         comm int,
+    ->         deptno int,
+    ->         foreign key (deptno) references dept(deptno),
+    ->         foreign key (mgr) references emp(empno)
+    ->      );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mgr int,
+        hiredate date,
+        sal int,
+        comm int,
+        deptn' at line 6
+mysql>
+mysql> create table emp
+    -> (\c
+mysql>
+mysql> create table emp
+    ->      (
+    ->         empno int primary key,
+    ->         ename varchar(20),
+    ->         job varchar(20),
+    ->         mgr int,
+    ->         hiredate date,
+    ->         sal int,
+    ->         comm int,
+    ->         deptno int,
+    ->         foreign key (deptno) references dept(deptno),
+    ->         foreign key (mgr) references emp(empno)
+    ->      );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into emp values(778, 'Jack', 'Manager', 7839, 2022-06-15, 9000, null, 10);
+ERROR 1292 (22007): Incorrect date value: '2001' for column 'hiredate' at row 1
+mysql> insert into emp values(778, 'Jack', 'Manager', 7839,'2022-06-15', 9000, null, 10);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`mysql`.`emp`, CONSTRAINT `emp_ibfk_2` FOREIGN KEY (`mgr`) REFERENCES `emp` (`empno`))
+mysql> insert into emp values(778, 'Jack', 'Manager', 7839,'2022-06-15', 9000, null, 10);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`mysql`.`emp`, CONSTRAINT `emp_ibfk_2` FOREIGN KEY (`mgr`) REFERENCES `emp` (`empno`))
+mysql>
+mysql> select * from emp;
+Empty set (0.00 sec)
+
+mysql> clear
+mysql> cls
+    -> ^C
+mysql>
+mysql> select * from dept;
++--------+------------+--------------+
+| deptno | deptname   | loc          |
++--------+------------+--------------+
+|     10 | Accounting | New York     |
+|     20 | Operations | Boston       |
+|     30 | Research   | Dallas       |
+|     40 | Sales      | Philadelphia |
++--------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
+Empty set (0.00 sec)
+
+mysql> insert into emp values(778, 'Jack', 'Manager', null,'2022-06-15', 9000, null, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(717, 'James', 'Associate manager', 7839,'2022-04-13', 4000, null, 10);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`mysql`.`emp`, CONSTRAINT `emp_ibfk_2` FOREIGN KEY (`mgr`) REFERENCES `emp` (`empno`))
+mysql> insert into emp values(717, 'James', 'Associate manager', null,'2022-04-13', 4000, null, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+-------+-------------------+------+------------+------+------+--------+
+| empno | ename | job               | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-------------------+------+------------+------+------+--------+
+|   717 | James | Associate manager | NULL | 2022-04-13 | 4000 | NULL |     10 |
+|   778 | Jack  | Manager           | NULL | 2022-06-15 | 9000 | NULL |     10 |
++-------+-------+-------------------+------+------------+------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> delete from dept where empno = 718;
+ERROR 1054 (42S22): Unknown column 'empno' in 'where clause'
+mysql> delete * from dept where empno = 718;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* from dept where empno = 718' at line 1
+mysql> delete from dept where empno = 718;
+ERROR 1054 (42S22): Unknown column 'empno' in 'where clause'
+mysql> delete from dept where empno = 718;
+ERROR 1054 (42S22): Unknown column 'empno' in 'where clause'
+mysql> insert into emp values(554, 'Janet', 'Associate salesperson', 778,'2022-04-13', 4000, null, 10);
+ERROR 1406 (22001): Data too long for column 'job' at row 1
+mysql> insert into emp values(554, 'Janet', 'salesperson', 778,'2022-04-13', 4000, null, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+-------+-------------------+------+------------+------+------+--------+
+| empno | ename | job               | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-------------------+------+------------+------+------+--------+
+|   554 | Janet | salesperson       |  778 | 2022-04-13 | 4000 | NULL |     10 |
+|   717 | James | Associate manager | NULL | 2022-04-13 | 4000 | NULL |     10 |
+|   778 | Jack  | Manager           | NULL | 2022-06-15 | 9000 | NULL |     10 |
++-------+-------+-------------------+------+------------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> delete from emp where empno = 717;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into emp values(600, 'Jim', 'accountant',778,'2018-04-18', 2000, null, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+-------+-------------+------+------------+------+------+--------+
+| empno | ename | job         | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-------------+------+------------+------+------+--------+
+|   554 | Janet | salesperson |  778 | 2022-04-13 | 4000 | NULL |     10 |
+|   600 | Jim   | accountant  |  778 | 2018-04-18 | 2000 | NULL |     10 |
+|   778 | Jack  | Manager     | NULL | 2022-06-15 | 9000 | NULL |     10 |
++-------+-------+-------------+------+------------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> insert into emp values(125, 'Jenny', 'Junior Acc',600,'2011-07-18', 6000, null, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+-------+-------------+------+------------+------+------+--------+
+| empno | ename | job         | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-------------+------+------------+------+------+--------+
+|   125 | Jenny | Junior Acc  |  600 | 2011-07-18 | 6000 | NULL |     10 |
+|   554 | Janet | salesperson |  778 | 2022-04-13 | 4000 | NULL |     10 |
+|   600 | Jim   | accountant  |  778 | 2018-04-18 | 2000 | NULL |     10 |
+|   778 | Jack  | Manager     | NULL | 2022-06-15 | 9000 | NULL |     10 |
++-------+-------+-------------+------+------------+------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> insert into emp values(471, 'Jack', 'barber',700,'2018-04-18', 2000, null, 10);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`mysql`.`emp`, CONSTRAINT `emp_ibfk_2` FOREIGN KEY (`mgr`) REFERENCES `emp` (`empno`))
+mysql> drop table flight;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from flight;
+ERROR 1146 (42S02): Table 'mysql.flight' doesn't exist
+mysql> drop table emp;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table emp
+    ->     ->      (
+    ->     ->         empno int primary key,
+    ->     ->         ename varchar(20),
+    ->     ->         job varchar(20),
+    ->     ->         mgr int,
+    ->     ->         hiredate date,
+    ->     ->         sal int,
+    ->     ->         comm int,
+    ->     ->         deptno int,
+    ->     ->         foreign key (deptno) references dept(deptno),
+    ->     ->         foreign key (mgr) references emp(empno)
+    ->     ->      );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '->      (
+    ->         empno int primary key,
+    ->         ename varchar(20)' at line 2
+mysql> create table emp
+    -> (
+    ->  empno int primary key,
+    ->  ename varchar(20),
+    ->  job varchar(20),
+    ->  mgr int,
+    ->  hiredate date,
+    ->  sal int,
+    ->  comm int,
+    ->  deptno int,
+    ->  foreign key (deptno) references dept (deptno),
+    ->  foreign key (mgr) references emp(empno)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'1981-12-17',5000,NULL,10)
+    -> ^C
+mysql> INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'1981-12-17',5000,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,'1981-5-1',2850,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,'1981-6-9',2450,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,'1981-3-2',2975,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'1981-9-28',1250,1400,30)
+    -> INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'1981-2-20',1600,300,30);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'1981-2-20',1600,300,30)' at line 2
+mysql> INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,'1981-9-8',1500,0,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,'1981-12-3',950,NULL,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,'1981-02-22',1250,500,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,'1981-12-3',3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,'1982-12-09',3000,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,'1983-01-12',1100,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,'1982-01-23',1300,NULL,10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+--------------+
+| deptno | deptname   | loc          |
++--------+------------+--------------+
+|     10 | Accounting | New York     |
+|     20 | Operations | Boston       |
+|     30 | Research   | Dallas       |
+|     40 | Sales      | Philadelphia |
++--------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> update dept
+    -> set deptname = 'Sales'
+    -> where deptno = 30;
+ERROR 1062 (23000): Duplicate entry 'Sales' for key 'dept.deptname'
+mysql> update dept
+    -> set deptname = 'IT'
+    -> where deptno = 40;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+--------------+
+| deptno | deptname   | loc          |
++--------+------------+--------------+
+|     10 | Accounting | New York     |
+|     20 | Operations | Boston       |
+|     30 | Research   | Dallas       |
+|     40 | IT         | Philadelphia |
++--------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> update dept
+    -> set deptname = 'Sales'
+    -> where deptno = 30;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+--------------+
+| deptno | deptname   | loc          |
++--------+------------+--------------+
+|     10 | Accounting | New York     |
+|     20 | Operations | Boston       |
+|     30 | Sales      | Dallas       |
+|     40 | IT         | Philadelphia |
++--------+------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+12 rows in set (0.00 sec)
+
+mysql> delete from dept where deptno = 40;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+
+| deptno | deptname   | loc      |
++--------+------------+----------+
+|     10 | Accounting | New York |
+|     20 | Operations | Boston   |
+|     30 | Sales      | Dallas   |
++--------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+12 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'1981-9-28',1250,1400,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'1981-2-20',1600,300,30);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+14 rows in set (0.00 sec)
+
+mysql> update dept
+    -> set deptname = 'Research'
+    -> where deptno = 20;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+
+| deptno | deptname   | loc      |
++--------+------------+----------+
+|     10 | Accounting | New York |
+|     20 | Research   | Boston   |
+|     30 | Sales      | Dallas   |
++--------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update dept set deptname = 'Operations' where deptno = 20;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+
+| deptno | deptname   | loc      |
++--------+------------+----------+
+|     10 | Accounting | New York |
+|     20 | Operations | Boston   |
+|     30 | Sales      | Dallas   |
++--------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> update dept
+    -> set deptname = 'Research'
+    -> where deptno = 20;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dept;
++--------+------------+----------+
+| deptno | deptname   | loc      |
++--------+------------+----------+
+|     10 | Accounting | New York |
+|     20 | Research   | Boston   |
+|     30 | Sales      | Dallas   |
++--------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> delete from emp where empno = 7369;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+13 rows in set (0.00 sec)
+
+mysql> INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,'1980-12-17',800,NULL,20);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+14 rows in set (0.00 sec)
+
+mysql> create table customer
+    -> (
+    ->  custid number(6)not null,
+    ->  name varchar(45),
+    ->  address varchar(40),
+    ->  city varchar2(30),
+    -> ^C
+mysql> CREATE TABLE CUSTOMER (
+    ->  CUSTID              INT (6) NOT NULL,
+    ->  NAME                VARCHAR(45),
+    ->  ADDRESS             VARCHAR(40),
+    ->  CITY                VARCHAR(30),
+    ->  STATE               VARCHAR(2),
+    ->  ZIP                 VARCHAR(9),
+    ->  AREA                INT (3),
+    ->  PHONE               VARCHAR(9),
+    ->  REPID               INT (4) NOT NULL,
+    ->  CREDITLIMIT         INT (9,2),
+    ->  COMMENTS            LONG,
+    ->  CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY (CUSTID),
+    ->  CONSTRAINT CUSTID_ZERO CHECK (CUSTID > 0));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',2),
+ COMMENTS            LONG,
+ CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY (CU' at line 11
+mysql> CREATE TABLE CUSTOMER (
+    ->  CUSTID              INT (6) NOT NULL,
+    ->  NAME                VARCHAR(45),
+    ->  ADDRESS             VARCHAR(40),
+    ->  CITY                VARCHAR(30),
+    ->  STATE               VARCHAR(2),
+    ->  ZIP                 VARCHAR(9),
+    ->  AREA                INT (3),
+    ->  PHONE               VARCHAR(9),
+    ->  REPID               INT (4) NOT NULL,
+    ->  CREDITLIMIT         INT (9,2),
+    ->  COMMENTS            VARCHAR(50),
+    ->  CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY KEY (CUSTID),
+    ->  CONSTRAINT CUSTID_ZERO CHECK (CUSTID > 0));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',2),
+ COMMENTS            VARCHAR(50),
+ CONSTRAINT CUSTOMER_PRIMARY_KEY PRIMARY ' at line 11
+mysql> select * from dept;
++--------+------------+----------+
+| deptno | deptname   | loc      |
++--------+------------+----------+
+|     10 | Accounting | New York |
+|     20 | Research   | Boston   |
+|     30 | Sales      | Dallas   |
++--------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from EMP;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp where empno = 7839;
++-------+-------+-----------+------+------------+------+------+--------+
+| empno | ename | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-----------+------+------------+------+------+--------+
+|  7839 | KING  | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
++-------+-------+-----------+------+------------+------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptno = 10;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno = 20;
++-------+-------+---------+------+------------+------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+---------+------+------------+------+------+--------+
+|  7369 | SMITH | CLERK   | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7566 | JONES | MANAGER | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7876 | ADAMS | CLERK   | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+-------+---------+------+------------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno = 30;
++-------+--------+----------+------+------------+------+------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+----------+------+------------+------+------+--------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER  | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7900 | JAMES  | CLERK    | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+--------+----------+------+------------+------+------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno = 10 and deptno = 20;
+Empty set (0.00 sec)
+
+mysql> select * from emp where deptno = 10 and mgr = 7839;
++-------+-------+---------+------+------------+------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+---------+------+------------+------+------+--------+
+|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450 | NULL |     10 |
++-------+-------+---------+------+------------+------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptno = 10 or deptno = 20;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+--------+-----------+------+------------+------+------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where job = 'clerk';
++-------+--------+-------+------+------------+------+------+--------+
+| empno | ename  | job   | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7876 | ADAMS  | CLERK | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7934 | MILLER | CLERK | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-------+------+------------+------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where sal > 2000 and sal < 3000;
++-------+-------+---------+------+------------+------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+---------+------+------------+------+------+--------+
+|  7566 | JONES | MANAGER | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE | MANAGER | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK | MANAGER | 7839 | 1981-06-09 | 2450 | NULL |     10 |
++-------+-------+---------+------+------------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where sal < 2000;
++-------+--------+----------+------+------------+------+------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK    | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7876 | ADAMS  | CLERK    | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK    | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7934 | MILLER | CLERK    | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+----------+------+------------+------+------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where sal < 1000;
++-------+-------+-------+------+------------+------+------+--------+
+| empno | ename | job   | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-------+------+------------+------+------+--------+
+|  7369 | SMITH | CLERK | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7900 | JAMES | CLERK | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+-------+-------+------+------------+------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where sal between 3000 and 4000;
++-------+-------+---------+------+------------+------+------+--------+
+| empno | ename | job     | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+---------+------+------------+------+------+--------+
+|  7788 | SCOTT | ANALYST | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7902 | FORD  | ANALYST | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+-------+---------+------+------------+------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where deptno in (10,20);
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+--------+-----------+------+------------+------+------+--------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where comm != null;
+Empty set (0.00 sec)
+
+mysql> select * from emp where comm is not null;
++-------+--------+----------+------+------------+------+------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+----------+------+------------+------+------+--------+
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
++-------+--------+----------+------+------------+------+------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where comm is null;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK     | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT  | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7876 | ADAMS  | CLERK     | 7788 | 1983-01-12 | 1100 | NULL |     20 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
+|  7934 | MILLER | CLERK     | 7782 | 1982-01-23 | 1300 | NULL |     10 |
++-------+--------+-----------+------+------------+------+------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select * from emp where sal < 1000 or job = salesman and sal > 1200;
+ERROR 1054 (42S22): Unknown column 'salesman' in 'where clause'
+mysql> select * from emp where sal < 1000 or job ='salesman' and sal > 1200;
++-------+--------+----------+------+------------+------+------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+----------+------+------------+------+------+--------+
+|  7369 | SMITH  | CLERK    | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN  | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7900 | JAMES  | CLERK    | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+--------+----------+------+------------+------+------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where sal < 1000 or job ='salesman' and sal > 1500;
++-------+-------+----------+------+------------+------+------+--------+
+| empno | ename | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+----------+------+------------+------+------+--------+
+|  7369 | SMITH | CLERK    | 7902 | 1980-12-17 |  800 | NULL |     20 |
+|  7499 | ALLEN | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7900 | JAMES | CLERK    | 7698 | 1981-12-03 |  950 | NULL |     30 |
++-------+-------+----------+------+------------+------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where sal < 1000 and job ='salesman' or sal > 1500;
++-------+-------+-----------+------+------------+------+------+--------+
+| empno | ename | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+-----------+------+------------+------+------+--------+
+|  7499 | ALLEN | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7566 | JONES | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7698 | BLAKE | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7788 | SCOTT | ANALYST   | 7566 | 1982-12-09 | 3000 | NULL |     20 |
+|  7839 | KING  | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+-------+-----------+------+------------+------+------+--------+
+7 rows in set (0.00 sec)
+
+mysql> select * from emp where hiredate =  '1981-02-20';
++-------+-------+----------+------+------------+------+------+--------+
+| empno | ename | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+-------+----------+------+------------+------+------+--------+
+|  7499 | ALLEN | SALESMAN | 7698 | 1981-02-20 | 1600 |  300 |     30 |
++-------+-------+----------+------+------------+------+------+--------+
+1 row in set (0.00 sec)
+
+mysql> select * from
+    ->
+    ->
+    -> emo;
+ERROR 1146 (42S02): Table 'mysql.emo' doesn't exist
+mysql> select date(giredate) from emp;
+ERROR 1054 (42S22): Unknown column 'giredate' in 'field list'
+mysql> select date(hiredate) from emp;
++----------------+
+| date(hiredate) |
++----------------+
+| 1980-12-17     |
+| 1981-02-20     |
+| 1981-02-22     |
+| 1981-03-02     |
+| 1981-09-28     |
+| 1981-05-01     |
+| 1981-06-09     |
+| 1982-12-09     |
+| 1981-12-17     |
+| 1981-09-08     |
+| 1983-01-12     |
+| 1981-12-03     |
+| 1981-12-03     |
+| 1982-01-23     |
++----------------+
+14 rows in set (0.00 sec)
+
+mysql> select date('1981-06-08') from emp;
++--------------------+
+| date('1981-06-08') |
++--------------------+
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
+| 1981-06-08         |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> select date('1981-06-08');
++--------------------+
+| date('1981-06-08') |
++--------------------+
+| 1981-06-08         |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select date('1981-06-08 3:39');
++-------------------------+
+| date('1981-06-08 3:39') |
++-------------------------+
+| 1981-06-08              |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> select datediff('1981-02-01', '1981-01-01');
++--------------------------------------+
+| datediff('1981-02-01', '1981-01-01') |
++--------------------------------------+
+|                                   31 |
++--------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select datediff('1981-01-01', hiredate);
+ERROR 1054 (42S22): Unknown column 'hiredate' in 'field list'
+mysql> select datediff('1981-01-01', hiredate) from emp;
++----------------------------------+
+| datediff('1981-01-01', hiredate) |
++----------------------------------+
+|                               15 |
+|                              -50 |
+|                              -52 |
+|                              -60 |
+|                             -270 |
+|                             -120 |
+|                             -159 |
+|                             -707 |
+|                             -350 |
+|                             -250 |
+|                             -741 |
+|                             -336 |
+|                             -336 |
+|                             -387 |
++----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select datediff(hiredate, '1980-01-01') from emp;
++----------------------------------+
+| datediff(hiredate, '1980-01-01') |
++----------------------------------+
+|                              351 |
+|                              416 |
+|                              418 |
+|                              426 |
+|                              636 |
+|                              486 |
+|                              525 |
+|                             1073 |
+|                              716 |
+|                              616 |
+|                             1107 |
+|                              702 |
+|                              702 |
+|                              753 |
++----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select datediff(hiredate, '1981-01-01') from emp;
++----------------------------------+
+| datediff(hiredate, '1981-01-01') |
++----------------------------------+
+|                              -15 |
+|                               50 |
+|                               52 |
+|                               60 |
+|                              270 |
+|                              120 |
+|                              159 |
+|                              707 |
+|                              350 |
+|                              250 |
+|                              741 |
+|                              336 |
+|                              336 |
+|                              387 |
++----------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select date_add('1981-01-01', interval 55 days);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'days)' at line 1
+mysql> select date_add('1981-01-01', interval 55 day);
++-----------------------------------------+
+| date_add('1981-01-01', interval 55 day) |
++-----------------------------------------+
+| 1981-02-25                              |
++-----------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_add('2022-06-12', interval -22 year);
++-------------------------------------------+
+| date_add('2022-06-12', interval -22 year) |
++-------------------------------------------+
+| 2000-06-12                                |
++-------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select date_format(hiredate, '%Y') from emp;
++-----------------------------+
+| date_format(hiredate, '%Y') |
++-----------------------------+
+| 1980                        |
+| 1981                        |
+| 1981                        |
+| 1981                        |
+| 1981                        |
+| 1981                        |
+| 1981                        |
+| 1982                        |
+| 1981                        |
+| 1981                        |
+| 1983                        |
+| 1981                        |
+| 1981                        |
+| 1982                        |
++-----------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select date_format(hiredate, '%Y') = 1981;
+ERROR 1054 (42S22): Unknown column 'hiredate' in 'field list'
+mysql> select * from emp where date_format(hiredate, '%Y') = 1981;
++-------+--------+-----------+------+------------+------+------+--------+
+| empno | ename  | job       | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+-----------+------+------------+------+------+--------+
+|  7499 | ALLEN  | SALESMAN  | 7698 | 1981-02-20 | 1600 |  300 |     30 |
+|  7521 | WARD   | SALESMAN  | 7698 | 1981-02-22 | 1250 |  500 |     30 |
+|  7566 | JONES  | MANAGER   | 7839 | 1981-03-02 | 2975 | NULL |     20 |
+|  7654 | MARTIN | SALESMAN  | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7698 | BLAKE  | MANAGER   | 7839 | 1981-05-01 | 2850 | NULL |     30 |
+|  7782 | CLARK  | MANAGER   | 7839 | 1981-06-09 | 2450 | NULL |     10 |
+|  7839 | KING   | PRESIDENT | NULL | 1981-12-17 | 5000 | NULL |     10 |
+|  7844 | TURNER | SALESMAN  | 7698 | 1981-09-08 | 1500 |    0 |     30 |
+|  7900 | JAMES  | CLERK     | 7698 | 1981-12-03 |  950 | NULL |     30 |
+|  7902 | FORD   | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
++-------+--------+-----------+------+------------+------+------+--------+
+10 rows in set (0.00 sec)
+
+mysql> select date_format(hiredate, '%Y') = 1981 from emp;
++------------------------------------+
+| date_format(hiredate, '%Y') = 1981 |
++------------------------------------+
+|                                  0 |
+|                                  1 |
+|                                  1 |
+|                                  1 |
+|                                  1 |
+|                                  1 |
+|                                  1 |
+|                                  0 |
+|                                  1 |
+|                                  1 |
+|                                  0 |
+|                                  1 |
+|                                  1 |
+|                                  0 |
++------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql> select * from emp where date_format(hiredate, '%Y-%m') = 1981-09;
+Empty set, 14 warnings (0.00 sec)
+
+mysql> select * from emp where date_format(hiredate, '%Y-%m') ='1981-09';
++-------+--------+----------+------+------------+------+------+--------+
+| empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
++-------+--------+----------+------+------------+------+------+--------+
+|  7654 | MARTIN | SALESMAN | 7698 | 1981-09-28 | 1250 | 1400 |     30 |
+|  7844 | TURNER | SALESMAN | 7698 | 1981-09-08 | 1500 |    0 |     30 |
++-------+--------+----------+------+------------+------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> select date_add(hiredate, interval -22 day) from emp;
++--------------------------------------+
+| date_add(hiredate, interval -22 day) |
++--------------------------------------+
+| 1980-11-25                           |
+| 1981-01-29                           |
+| 1981-01-31                           |
+| 1981-02-08                           |
+| 1981-09-06                           |
+| 1981-04-09                           |
+| 1981-05-18                           |
+| 1982-11-17                           |
+| 1981-11-25                           |
+| 1981-08-17                           |
+| 1982-12-21                           |
+| 1981-11-11                           |
+| 1981-11-11                           |
+| 1982-01-01                           |
++--------------------------------------+
+14 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

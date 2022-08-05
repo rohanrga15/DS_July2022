@@ -1,0 +1,96 @@
+04/08/2022
+
+Sql Notes Day11
+			
+Day 11			
+1. MySql
+
+------------------------------------------------------------------------------------------------------------------- 	
+
+Relational dbms - managiing data using queries
+					|
+					DQL
+						- select
+					DDL
+						- create table
+						- alter table
+						- truncate table
+						- drop table
+					DML
+						- insert
+						- update
+						- delete
+					TCL
+						- commit
+						- rollback
+					DCL
+						- grant
+						- revoke
+CONSTRAINTS
+
+select within select - nested queries
+JOINS - all types 
+
+Creating table
+
+create table emp
+    -> (
+    ->  empno int primary key,
+    ->  ename varchar(20),
+    -> 	job varchar(20),
+    ->  mgr int,
+    ->  hiredate int,
+    ->  sal int,
+    -> 	comm int,
+    ->  deptno int,
+    ->  foreign key (deptno) references dept (deptno),
+    ->  foreign key (mgr) references emp(empno)
+    -> );
+
+		KING
+		|president
+		10
+		7839
+		|
+---------------------------------
+|		|		|
+CLARK		JONES		BLAKE --> emp				
+|manager	|manager	|manager --> emp
+10		20		30 --> dept
+7782		7566		7698
+|		|		|--------------------------------------------------------------------------------
+|		-----------------		|		|		|		|		|
+|		|		|		MARTIN		TURNER		WARD		ALLEN		JAMES
+MILLER		SCOTT		FORD		|salesman	|salesman	|salesman	|salesman	|salesman
+|manager	|analyst	|analyst
+10		7788		7902
+7934		|		|
+		ADAMS		SMITH
+		|clerk		|clerk
+		
+
+
+
+
+CREATE TABLE CUSTOMER (
+ CUSTID              INT NOT NULL,
+ NAME                VARCHAR(45),
+ ADDRESS             VARCHAR(40),
+ CITY                VARCHAR(30),
+ STATE               VARCHAR(2),
+ ZIP                 VARCHAR(9),
+ AREA                INT,
+ PHONE               VARCHAR(9),
+ REPID               INT NOT NULL,
+ CREDITLIMIT         INT,
+ COMMENTS            VARCHAR(200),
+ PRIMARY KEY (CUSTID));
+
+UNION
+INTERSECT 
+UNION ALL 
+MINUS
+
+
+
+
